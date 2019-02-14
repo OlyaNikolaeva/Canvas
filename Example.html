@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="utf-8"/>
+  <script type="application/javascript">
+(function draw() { 
+  if (document.createElement('canvas').getContext) { 
+    if (document.readyState === 'complete') 
+      snow(); 
+    else 
+      window.addEventListener('DOMContentLoaded', snow, false); 
+  } 
+  else { 
+  return; 
+  }  
+  var canvas, heaven; 
+  var snowingTimer; 
+  var invalidateMeasure = false; 
+  var deg = Math.PI / 180; 
+  var maxflakes = 20;     
+  var snowflakes = [];         
+  var scrollspeed = 64;    
+  var snowspeed = 500;  
+
+     var strokes = ["#000080"]; //color
+
+  function countRand (n) {   //количество появлений 
+    return Math.floor(n/2* Math.random()); 
+  } 
+ 
+  function snow() { 
+    canvas = document.createElement('canvas'); 
+    canvas.style.position = 'fixed'; 
+    canvas.style.top = '2px'; 
+    canvas.style.left = '1px'; 
+    canvas.style.zIndex = '-20'; 
+
+    document.body.insertBefore(canvas, document.body.firstChild); 
+    heaven = canvas.getContext('2d'); 
+
+    scale(); 
+
+    snowingTimer = setInterval(createSnowflake, snowspeed); 
+    setInterval(moveSnowflakes, scrollspeed); 
+    window.addEventListener('resize', scale, false); 
+  } 
+
+  function scale() {  //масштаб
+    invalidateMeasure = true; 
+    canvas.width = 350; 
+    canvas.height = 350; 
+  } 
+
+  function snowFlakes(n, length) { 
+    heaven.save();      
+    if (n == 0) {    
+		heaven.lineTo(length, 0);      } 
+    else { 
+		heaven.scale(1 / 2, 1 / 2);  
+        snowFlakes(n - 2, length-3);            
+		heaven.rotate(60 * deg); 
+        snowFlakes(n - 2, length);              
+		heaven.rotate(-90 * deg);              
+		snowFlakes(n - 2, length-3);          } 
+		heaven.restore();      
+		heaven.translate(length-3, 0); 
+  } 
+
+  function drawFlake(x, y, angle, length, n, stroke, fill) { 
+    heaven.save();      
+	heaven.strokeStyle = stroke; 
+    heaven.fillStyle = fill; 
+    heaven.beginPath(); 
+    heaven.translate(x, y); 
+    heaven.moveTo(0, 0);      
+	heaven.rotate(angle); 
+    snowFlakes(n, length); 
+    heaven.rotate(-150 * deg); 
+    snowFlakes(n, length);           
+	heaven.rotate(-150 * deg); 
+    snowFlakes(n, length);           
+	heaven.closePath(); 
+    heaven.fill(); 
+    heaven.stroke(); 
+    heaven.restore(); 
+  } 
+
+  function createSnowflake() { 
+    var order = 2+countRand(2); 
+    var size = 10*order+countRand(10); 
+    var x = countRand(document.body.offsetWidth); 
+    var y = window.pageYOffset; 
+    var stroke = strokes[countRand(strokes.length)]; 
+
+    snowflakes.push({ x: x, y: y, vx: 0, vy: 3 + countRand(3), angle:0, size: size, order: order, stroke: stroke, fill: 'transparent' }); 
+
+    if (snowflakes.length > maxflakes) clearInterval(snowingTimer); 
+  } 
+
+  function moveSnowflakes() { 
+    heaven.clearRect(0, 0, canvas.width, canvas.height); 
+
+    var maxy = canvas.height; 
+
+    for (var i = 0; i < snowflakes.length; i++) { 
+     var flake = snowflakes[i]; 
+
+     flake.y += flake.vy; 
+     flake.x += flake.vx; 
+
+     if (flake.y > maxy) flake.y = 0; 
+     if (invalidateMeasure) { 
+       flake.x = countRand(canvas.width); 
+     } 
+
+     drawFlake(flake.x, flake.y, flake.angle, flake.size, flake.order, flake.stroke, flake.fill); 
+
+     if (countRand(4) == 1) flake.vx += (countRand(11) - 7) / 10; 
+     if (flake.vx > 2) flake.vx = 2; 
+     if (flake.vx < -2) flake.vx = -2; 
+     if (countRand(3) == 1) flake.angle = (countRand(13) - 3) / 271; 
+    } 
+    if (invalidateMeasure) invalidateMeasure = false; 
+  } 
+} ()); 
+  </script>
+  </head>
+  <body onload="draw();"></body>
+</html>
