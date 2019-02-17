@@ -1,0 +1,121 @@
+<!DOCTYPE <!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Page Title</title>
+</head>
+<body style="margin:0;">
+    <canvas id="canvas" style="display: block;">
+
+    </canvas>
+    <script>
+        var 
+        canv=document.getElementById("canvas"),
+        ctx=canv.getContext('2d');
+
+        canv.width=window.innerWidth;
+        canv.height=window.innerHeight;
+
+        var grd=ctx.createRadialGradient(444,43,35, 425,100, 100);
+        grd.addColorStop(0, "DarkRed");
+        grd.addColorStop(0.73, "DarkOrange");
+        grd.addColorStop(1, "Gold");
+
+        var gradient = ctx.createLinearGradient(437,53,439,129);
+        gradient.addColorStop(0, "Red");
+        gradient.addColorStop(0.36, "DarkOrange");
+        gradient.addColorStop(1.0, "OrangeRed");
+
+        var grad2 = ctx.createLinearGradient(349.8,44,480,129);
+        grad2.addColorStop(0, "#1BB2F3");
+        grad2.addColorStop(0.9, "#11FAFA");
+        grad2.addColorStop(1.0, "#1751E6");
+
+        ctx.beginPath();
+        ctx.fillStyle=grd;
+        ctx.arc(408,108.5,87,0*Math.PI,2*Math.PI);
+        ctx.fill();
+        
+        ctx.globalCompositeOperation='source-over';
+        ctx.beginPath();
+        ctx.strokeStyle = "Red";
+        ctx.lineWidth=2.74;
+        ctx.ellipse(446,51,44,18,Math.PI/5.44,0,Math.PI*2,);
+        ctx.stroke(); 
+
+        ctx.beginPath();
+        ctx.strokeStyle = "DarkRed";
+        ctx.lineWidth=2.4;
+        ctx.ellipse(447.3,48,34,13.7,Math.PI/5.49,0,Math.PI*2,);
+        ctx.stroke(); 
+
+        ctx.beginPath();
+        ctx.strokeStyle = "Red";
+        ctx.lineWidth=1;
+        ctx.ellipse(443,59,56,24,Math.PI/5.44,-0.06*Math.PI,Math.PI+0.65);
+        ctx.stroke(); 
+
+        ctx.beginPath();
+        ctx.strokeStyle = gradient;
+        ctx.lineWidth=5.3;
+        ctx.ellipse(437,67,68,32,Math.PI/5.44,-0.06*Math.PI,Math.PI+0.53);
+        ctx.stroke(); 
+
+        ctx.beginPath();
+        ctx.strokeStyle="White";
+        ctx.lineWidth=3;
+        ctx.moveTo(380,24.1);
+        ctx.quadraticCurveTo(387, 19.5,402, 20.5);
+        ctx.stroke();
+
+        ctx.beginPath();
+        ctx.strokeStyle=gradient;
+        ctx.lineWidth=3.8;
+        ctx.setLineDash([23, 16]);
+        ctx.moveTo(362,36);
+        ctx.bezierCurveTo(340,90, 492,173, 499,114);
+        ctx.stroke();
+
+        ctx.beginPath();
+        ctx.strokeStyle="White";
+        ctx.setLineDash([0,0]);
+        ctx.lineWidth=3.7
+        ctx.moveTo(495,90);
+        ctx.quadraticCurveTo(500,104,497,135);
+        ctx.stroke();
+
+        ctx.beginPath();
+        ctx.strokeStyle = "#F4FA58";
+        ctx.lineWidth=4.5;
+        ctx.ellipse(384,145,73,28,Math.PI/5.44,0,Math.PI);
+        ctx.stroke(); 
+        
+        ctx.beginPath();
+        ctx.strokeStyle="Gold";
+        ctx.lineWidth=3;
+        ctx.moveTo(325,103);
+        ctx.quadraticCurveTo(322, 108,325,115);
+        ctx.stroke();
+
+        ctx.beginPath();
+        ctx.strokeStyle="Orange";
+        ctx.lineWidth=3;
+        ctx.moveTo(448,182);
+        ctx.quadraticCurveTo(450,185,430,187);
+        ctx.stroke();
+
+
+        ctx.lineWidth=2.4;
+        ctx.lineJoin='round';
+        ctx.beginPath();
+        ctx.strokeStyle=grad2;
+        ctx.moveTo(349.9,44);
+        ctx.lineTo(224,80);
+        ctx.lineTo(430,150);
+        ctx.lineTo(570,110);
+        ctx.lineTo(491.7,83);
+        ctx.stroke();
+
+    </script>
+</body>
+</html>    
