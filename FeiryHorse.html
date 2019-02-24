@@ -52,7 +52,7 @@
             M 349,216 C 355,226,364,224,368,211'
         );
 
-        path.set({ fill: '#fbf5f9', stroke: '#806f81', opacity: 1 });
+        path.set({ fill: 'white', stroke: '#806f81', opacity: 1 });
 
         var leg1=new fabric.Path(
             'M 292,472 C 295,470,298,471,297,477\
@@ -183,8 +183,47 @@
         );
         brow3.set({ fill:'#ffdf91',stroke: '#574c51', opacity: 8 });
 
+        var shadowLeg1=new fabric.Path(
+            'M364,441 C 334,454,320,466,319,476\
+            316,484,310,495,294,495\
+            ,305,495,310,488,311,477\
+            316,461,324,449,342,428');
+            shadowLeg1.set({ fill:'#ecd0e5',stroke: '#ecd0e5', opacity:0.5 });
         
-        canvas.add(shadow,gryw1,gryw2,gryw3,path,leg1,leg2,gr,gry,gryg,or,or2,or3,or4,or5,brow,brow2,brow3,ear,nose1,nose2);
+            var shadowLeg2=new fabric.Path(
+            'M 353,313 C343,331,338,344,330,358\
+            300,395,340,456,405,442\
+            406,449,415,455,432,459\
+            446,465,456,475,471,492\
+            479,507,491,509,500,501\
+            491,500,485,496,474,483\
+            458,463,444,452,435,452\
+            421,445,411,439,407,428\
+            348,453,315,402,339,370\
+            ,351,345,363,323,365,310');
+            shadowLeg2.set({ fill:'#ecd0e5',stroke: '#ecd0e5', opacity:0.5 });
+
+            var shadowArm=new fabric.Path(
+            'M 341,310 C 325,317,313,315,298,311\
+            310,306,317,303,326,296\
+            332,293,372,259,370,242\
+            381,248,378,258,375,260\
+            358,281,339,293,331,300');
+            shadowArm.set({ fill:'#ecd0e5',stroke: '#ecd0e5', opacity:0.5 });
+        
+            var shadowArm2=new fabric.Path(
+            'M 471,321 C 468,292,465,275,459,265\
+            470,262,480,255,495,239\
+            503,232,515,223,531,221\
+            543,219,550,213,553,201\
+            545,209,536,212,530,212\
+            515,214,505,220,491,233\
+            472,248,461,248,450,260\
+            460,277,463,287,472,322');
+            shadowArm2.set({ fill:'#ecd0e5',stroke: '#ecd0e5', opacity:0.5 });
+        
+
+        canvas.add(shadow,gryw1,gryw2,gryw3,path,leg1,leg2,gr,gry,gryg,or,or2,or3,or4,or5,brow,brow2,brow3,ear,nose1,nose2,shadowLeg1,shadowLeg2,shadowArm,shadowArm2);
     </script>
 </body>
 </html>
