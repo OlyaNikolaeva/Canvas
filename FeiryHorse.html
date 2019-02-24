@@ -104,27 +104,37 @@
         var or4=horn(305,123,11,7,80);
         var or5=horn(295,114,10,6,80);
 
-        var y=new fabric.Path(
-            'M322,181 C312,175,297,180,292,192\
-            288,202,285,208,275,205'
+        var brow=new fabric.Path(
+            'M 322,179 C 315,169,300,172,293,183\
+            289,194,282,204,275,205\
+            290,206,297,196,299,188\
+            305,178,314,179,319,183\
+            326,184,326,181,322,179'
         );
-        y.set({ fill:'#848fed',stroke: '#4c4c7b', opacity: 8 });
+        brow.set({ fill:'#8390eb',stroke: '#4c4c7b', opacity: 8 });
 
-        var y2=new fabric.Path(
-            'M322,187 C312,186,300,189,299,193\
-            295,204,289,210,281,206'
+        var brow2=new fabric.Path(
+            'M322,184 C310,178,300,181,297,193\
+            295,200,289,204,281,206\
+            290,209,299,204,300,199\
+            300,192,309,190,310,192\
+            313,191,321,193,322,184'
         );
-        y2.set({ fill:'#d4a6f0',stroke: '#4c4c7b', opacity: 8 });
+        brow2.set({ fill:'#d4a6f0',stroke: '#4c4c7b', opacity: 8 });
 
-        var y3=new fabric.Path(
-            'M321,187 C327,195,324,200,311,197\
-            310,191,299,196,299,200\
-            300,209,294,212,285,208'
+        var brow3=new fabric.Path(
+            'M318,189 C320,187,322,194,310,192\
+            310,190,299,195,299,200\
+            300,202,294,208,285,208\
+            295,212,299,210,302,205\
+            305,200,308,199,310,200\
+            315,203,320,202,322,192\
+            320,192,323,190,318,192'
         );
-        y3.set({ fill:'#ffdf91',stroke: '#ffdf91', opacity: 8 });
+        brow3.set({ fill:'#ffdf91',stroke: '#574c51', opacity: 8 });
 
         
-        canvas.add(shadow,path,c,c2,gr,gry,gryg,or,or2,or3,or4,or5,y,y2,y3);
+        canvas.add(shadow,path,c,c2,gr,gry,gryg,or,or2,or3,or4,or5,brow,brow2,brow3);
     </script>
 </body>
 </html>
