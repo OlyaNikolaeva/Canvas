@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+    <canvas id="canvas" width="800" height="600"></canvas>
+
+    <script src="fabric.js"></script>
+    <script>
+        (function() {
+        var canvas = new fabric.Canvas('canvas');
+        var cup1=new fabric.Ellipse({
+            left: 332,
+	        top: 165,
+	        fill: '#ffffff',
+        	strokeWidth: 1,
+	        stroke: "#c2c2c2",
+        	rx: 108,
+         	ry: 41,
+	        angle: 0
+        });
+
+        var cup2=new fabric.Ellipse({
+            left: 343,
+	        top: 174,
+	        fill: '#959595',
+        	strokeWidth: 1,
+	        stroke: "#959595",
+        	rx: 97,
+         	ry: 31,
+	        angle: 0
+        });
+
+        var cup3=new fabric.Rect({
+            left: 332,
+            top: 209,
+            fill: '#ebebeb',
+            width: 216,
+            height: 210
+        });
+
+        var cup4=new fabric.Ellipse({
+            left: 332,
+	        top: 374,
+	        fill: '#ebebeb',
+        	rx: 108,
+         	ry: 40,
+	        angle: 0
+        });
+
+        var coffe=new fabric.Path(
+            'M 390,200 C 440,190,470,210,500,205\
+            543,210,540,216,500,229\
+            460,238,400,236,387,230\
+            338,218,336,208,390,200'
+            );
+        coffe.set({ 
+            fill:'#4c341e',
+            stroke: '#4c341e', 
+            opacity: 1 });
+
+        var ear1=new fabric.Circle({
+            radius: 17, 
+            fill: 'white', 
+            stroke: '#4c341e', 
+            opacity: 0.69,
+            left: 370, 
+            top: 330
+        });
+
+        var ear3=new fabric.Circle({
+            radius: 10, 
+            fill: 'black', 
+            left: 377, 
+            top: 336
+        });
+
+        var ear2=new fabric.Circle({
+            radius: 17, 
+            fill: 'white', 
+            stroke: '#4c341e', 
+            opacity: 0.69,
+            left: 474, 
+            top: 330
+        });
+
+        var ear4=new fabric.Circle({
+            radius: 10, 
+            fill: 'black', 
+            left: 480, 
+            top: 336
+        });
+
+        var lip= new fabric.Path(
+            'M 380,400 C437,430,460,430,500,400'
+        );
+
+        var show= new fabric.Path(
+            'M 520,234 C540,225,546,221,548,207 \
+            548,250,548,280,548,416\
+            546,422,542,427,520,439');
+
+            show.set({ 
+            fill:'#959595',
+            stroke: '#959595', 
+            opacity: 1 });
+
+            var group= new fabric.Group([cup4,cup3,cup1,cup2,coffe,ear1,ear2,ear3,ear4,lip,show]);
+        canvas.add(group).setActiveObject(group);
+            })();
+       </script>
+       </body>
+       </html>
